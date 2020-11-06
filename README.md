@@ -6,7 +6,7 @@ Créer des todos listes ou des listes de todos listes. Pour l'anthentification e
 - html
 - css
 - javascript
-- react ( hooks)
+- react ( hooks, useContext)
 - react router / react router dom
 - redux
 
@@ -14,6 +14,7 @@ Créer des todos listes ou des listes de todos listes. Pour l'anthentification e
 
 - Firebase
 - Notyf
+- Uuid
 
 ## Wireframe:
 
