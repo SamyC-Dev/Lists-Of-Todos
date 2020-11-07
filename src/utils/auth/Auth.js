@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import firebase from "../../components/Firebase/firebase";
+import addCurrentUser from '../AddCurrentUser';
 
 export const AuthContext = React.createContext();
 
@@ -13,6 +14,7 @@ export const AuthProvider = ({ children }) => {
         firebase.auth().onAuthStateChanged((user) => {
             setCurrentUser(user);
             setLoading(false);
+            user && addCurrentUser(user); // Add user in DB
             user && history.push('/userhomepage')
         });
         // eslint-disable-next-line

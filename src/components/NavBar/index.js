@@ -9,6 +9,7 @@ function Navbar() {
     const history = useHistory();
     const { currentUser } = useContext(AuthContext);
     console.log('currentUser ds Navbar:', currentUser);
+
     const logOut = (history) => {
         firebase.auth().signOut();
         history.push('/')

@@ -8,7 +8,6 @@ Créer des todos listes ou des listes de todos listes. Pour l'anthentification e
 - javascript
 - react ( hooks, useContext)
 - react router / react router dom
-- redux
 
 ## Outils:
 
