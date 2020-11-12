@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useContext, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from "../../utils/auth/Auth";
 import firebase from '../Firebase/firebase';
@@ -7,28 +8,45 @@ import './styles.css';
 
 function Navbar() {
     const history = useHistory();
+    const [isActive, setisActive] = useState(false);
     const { currentUser } = useContext(AuthContext);
     console.log('currentUser ds Navbar:', currentUser);
 
     const logOut = (history) => {
         firebase.auth().signOut();
-        history.push('/')
+        history.push('/');
     };
 
     return (
         <div>
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-                <NavLink className="navbar-brand" exact to={"/"}>List Of Todos</NavLink>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav ml-auto">
-                        <NavLink className="nav-link active mr-3" exact to={"/"}>Home <span className="sr-only">(current)</span></NavLink>
-                        <NavLink className="nav-link active mr-3" exact to={"/about"}>About <span className="sr-only">(current)</span></NavLink>
-                        {!currentUser ?
-                            <button onClick={() => history.push('/login')} className="btn btn-outline-primary btn-sm" type="submit">Connexion</button> :
-                            <button onClick={() => logOut(history)} className="btn btn-outline-primary btn-sm" type="submit">deconnexion</button>}
+            <nav className="navbar is-black" role="navigation" aria-label="main navigation">
+                <div className="navbar-brand">
+                    <NavLink className="navbar-item" exact to={"/"}>List Of Todos</NavLink>
+
+                    <a
+                        onClick={() => setisActive(!isActive)} role="button" className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
+                    <div className="navbar-start">
+
+                    </div>
+
+                    <div className="navbar-end">
+                        <NavLink className="navbar-item" exact to={"/"}>Home</NavLink>
+                        <NavLink className="navbar-item" exact to={"/about"}>About</NavLink>
+                        <div className="navbar-item">
+                            <div className="buttons">
+                                {!currentUser ?
+                                    <button onClick={() => history.push('/login')} className="button is-primary is-outlined">Connexion</button> :
+                                    <button onClick={() => logOut(history)} className="button is-danger is-outlined">deconnexion</button>}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>

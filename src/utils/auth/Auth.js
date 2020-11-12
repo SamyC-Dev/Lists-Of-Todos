@@ -30,17 +30,13 @@ export const AuthProvider = ({ children }) => {
                     height: "80vh",
                 }}
             >
-                <h1>Loading User...</h1>
+                <h1>Loading ...</h1>
             </div>
         );
     }
 
     return (
-        <AuthContext.Provider
-            value={{
-                currentUser,
-            }}
-        >
+        <AuthContext.Provider value={{ currentUser, }}>
             {children}
         </AuthContext.Provider>
     );
