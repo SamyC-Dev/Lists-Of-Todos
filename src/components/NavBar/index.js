@@ -21,8 +21,7 @@ function Navbar() {
         <div>
             <nav className="navbar is-black" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <NavLink className="navbar-item" exact to={"/"}>List Of Todos</NavLink>
-
+                    <NavLink className="navbar-item has-text-primary" exact to={"/"}>List Of Todos</NavLink>
                     <a
                         onClick={() => setisActive(!isActive)} role="button" className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
                         data-target="navbarBasicExample">
@@ -31,12 +30,7 @@ function Navbar() {
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-
                 <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
-                    <div className="navbar-start">
-
-                    </div>
-
                     <div className="navbar-end">
                         <NavLink className="navbar-item" exact to={"/"}>Home</NavLink>
                         <NavLink className="navbar-item" exact to={"/about"}>About</NavLink>
@@ -44,7 +38,7 @@ function Navbar() {
                             <div className="buttons">
                                 {!currentUser ?
                                     <button onClick={() => history.push('/login')} className="button is-primary is-outlined">Connexion</button> :
-                                    <button onClick={() => logOut(history)} className="button is-danger is-outlined">deconnexion</button>}
+                                    <button onClick={() => logOut(history)} className="button is-danger is-outlined">Deconnexion</button>}
                             </div>
                         </div>
                     </div>
