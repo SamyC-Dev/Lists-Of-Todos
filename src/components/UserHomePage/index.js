@@ -11,7 +11,7 @@ function UserHomePage() {
     const { displayName } = currentUser;
     return (
         <div>
-            <div className="container has-text-centered">
+            <div className="container has-text-centered ">
                 <h1 className="title is-size-2 my-1">Bienvenue</h1>
                 <h2 className="title is-size-3 my-1">{displayName}</h2>
             </div>
@@ -25,11 +25,8 @@ function UserHomePage() {
                 </div>
             </section>
             <section className="section ">
-                <div className="container">
-                    <h2 className="title is-size-3 has-text-centered">Mes listes</h2>
-                    <Lists />
-                </div>
-
+                <h2 className="title is-size-3 has-text-centered">Mes listes</h2>
+                <Lists />
             </section>
         </div>
     );
