@@ -1,18 +1,13 @@
 import React from 'react';
-import firebase from '../Firebase/firebase'
-import { v4 as uuidv4 } from 'uuid';
+import addUserList from '../../utils/addUserList';
 
 
-const InputForm = ({ inputList, setInputList, setILists, AllLists }) => {
+const InputForm = ({ inputList, setInputList, setILists, AllLists, uid }) => {
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setILists([...AllLists, {
-            id: uuidv4(),
-            title: inputList,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        }])
+        addUserList(inputList, uid)
         setInputList('');
     };
 
