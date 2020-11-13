@@ -38,13 +38,13 @@ function HomePage() {
                         </div>
                         <div className="level-item has-text-centered my-6">
                             <div>
-                                <p className="heading is-size-5"><span className="has-text-primary">Listes</span></p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Liste{totalLists > 1 && 's'}</span></p>
                                 <p className="title">{listloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalLists}</p>
                             </div>
                         </div>
                         <div className="level-item has-text-centered my-6">
                             <div>
-                                <p className="heading is-size-5"><span className="has-text-primary">Taches</span></p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Tache{totalTasks > 1 && 's'}</span></p>
                                 <p className="title">{taskloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalTasks}</p>
                             </div>
                         </div>
