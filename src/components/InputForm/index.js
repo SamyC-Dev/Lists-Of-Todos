@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const InputForm = ({ inputList, setInputList, setILists, AllLists }) => {
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setILists([...AllLists, {
