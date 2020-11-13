@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import getTotalUsers from '../../utils/getTotalUsersCount'
+import getTotalUsers from '../../utils/getTotalUsersCount';
+import getTotalLists from '../../utils/getTotalLists';
+import getTotalTasks from '../../utils/getTotalTasks';
+import spinnerImage from '../../assets/spinner.gif'
 
 function HomePage() {
     const history = useHistory();
     const [usersloading, setUsersloading] = useState(false);
+    const [listloading, setListsloading] = useState(false);
+    const [taskloading, setTaskloading] = useState(false);
     const [totalUsers, setTotalUsers] = useState(0);
+    const [totalLists, setTotalLists] = useState(0);
+    const [totalTasks, setTotalTasks] = useState(0);
 
     useEffect(() => {
         getTotalUsers(setUsersloading, setTotalUsers);
-    }, [totalUsers]);
-
+        getTotalLists(setListsloading, setTotalLists);
+        getTotalTasks(setTaskloading, setTotalTasks);
+    }, [totalUsers, totalLists, totalTasks]);
 
     return (
         <section className="hero is-black is-fullheight-with-navbar">
@@ -24,20 +32,20 @@ function HomePage() {
                     <nav className="level my-6">
                         <div className="level-item has-text-centered my-6">
                             <div>
-                                <p className="heading is-size-5"><span className="has-text-primary">Utilisateurs</span></p>
-                                <p className="title">{usersloading ? "loading..." : totalUsers}</p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Utilisateur{totalUsers > 1 && 's'}</span></p>
+                                <p className="title">{usersloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalUsers}</p>
                             </div>
                         </div>
                         <div className="level-item has-text-centered my-6">
                             <div>
                                 <p className="heading is-size-5"><span className="has-text-primary">Listes</span></p>
-                                <p className="title">123</p>
+                                <p className="title">{listloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalLists}</p>
                             </div>
                         </div>
                         <div className="level-item has-text-centered my-6">
                             <div>
                                 <p className="heading is-size-5"><span className="has-text-primary">Taches</span></p>
-                                <p className="title">456K</p>
+                                <p className="title">{taskloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalTasks}</p>
                             </div>
                         </div>
                     </nav>
