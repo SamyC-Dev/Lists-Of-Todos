@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import getTotalUsers from '../../utils/getTotalUsersCount'
 
 function HomePage() {
     const history = useHistory();
+    const [usersloading, setUsersloading] = useState(false);
+    const [totalUsers, setTotalUsers] = useState(0);
+
+    useEffect(() => {
+        getTotalUsers(setUsersloading, setTotalUsers);
+    }, [totalUsers]);
+
 
     return (
         <section className="hero is-black is-fullheight-with-navbar">
@@ -13,23 +21,23 @@ function HomePage() {
                     <h2 className="subtitle is-size-3 my-5">Gagnez en productivité, libérez votre mémoire <span className="has-text-primary">.</span></h2>
                     <p className="is-size-5 my-5">Creez des Listes/Taches/ListesDeTaches</p>
                     <button onClick={() => history.push('/login')} className="button is-primary is-outlined mt-2">Connectez-vous</button>
-                    <nav class="level my-6">
-                        <div class="level-item has-text-centered my-6">
+                    <nav className="level my-6">
+                        <div className="level-item has-text-centered my-6">
                             <div>
-                                <p class="heading is-size-5"><span className="has-text-primary">Utilisateurs</span></p>
-                                <p class="title">3,456</p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Utilisateurs</span></p>
+                                <p className="title">{usersloading ? "loading..." : totalUsers}</p>
                             </div>
                         </div>
-                        <div class="level-item has-text-centered my-6">
+                        <div className="level-item has-text-centered my-6">
                             <div>
-                                <p class="heading is-size-5"><span className="has-text-primary">Listes</span></p>
-                                <p class="title">123</p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Listes</span></p>
+                                <p className="title">123</p>
                             </div>
                         </div>
-                        <div class="level-item has-text-centered my-6">
+                        <div className="level-item has-text-centered my-6">
                             <div>
-                                <p class="heading is-size-5"><span className="has-text-primary">Taches</span></p>
-                                <p class="title">456K</p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Taches</span></p>
+                                <p className="title">456K</p>
                             </div>
                         </div>
                     </nav>
