@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 import InputForm from '../InputForm';
@@ -8,9 +8,28 @@ import Lists from '../Lists';
 function UserListPage() {
     const [AllLists, setILists] = useState([]);
     const [inputList, setInputList] = useState('');
-    const [loaderList, setloaderList] = useState('');
-    console.log("valeur ds input:", inputList);
-    console.log("listes tableau:", AllLists);
+
+    const saveLocalLists = () => {
+        localStorage.setItem('lists', JSON.stringify(AllLists));
+    };
+
+    const getLocalLists = () => {
+        if (localStorage.getItem('lists') === null) {
+            localStorage.setItem('lists', JSON.stringify([]));
+        } else {
+            let listsLocal = JSON.parse(localStorage.getItem("lists"));
+            setILists(listsLocal);
+        }
+    };
+
+    useEffect(() => {
+        getLocalLists();
+    }, []);
+
+    useEffect(() => {
+        saveLocalLists();
+    }, [AllLists]);
+
     return (
         <div className="">
             <div className="container has-text-centered ">
@@ -27,7 +46,7 @@ function UserListPage() {
             </section>
             <section className="section ">
                 <h2 className="title is-size-3 has-text-centered">Mes listes</h2>
-                <Lists AllLists={AllLists} setILists={setILists} loaderList={loaderList} />
+                <Lists AllLists={AllLists} setILists={setILists} />
             </section>
         </div>
     );

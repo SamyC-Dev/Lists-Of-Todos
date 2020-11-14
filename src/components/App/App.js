@@ -11,8 +11,6 @@ import About from '../About';
 
 function App() {
 
-  console.log('Chargement App ---');
-
   return (
     <div className="App">
       <Navbar />
