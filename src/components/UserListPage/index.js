@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 
+// Import components
 import InputForm from '../InputForm';
 import Lists from '../Lists';
 

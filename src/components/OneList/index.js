@@ -14,7 +14,7 @@ const OneList = ({ id, title, tasks, createdAt, setILists, AllLists }) => {
                 <div className="level-left">
                     <div className="level-item is-flex-direction-column is-align-items-flex-start">
                         <p className="subtitle is-3 has-text-white mb-1">{title}</p>
-                        <p className="subtitle is-5">Nb Tasks: {tasks.length}</p>
+                        <p className="subtitle is-5">Tasks: {tasks.length}</p>
                         <p className="subtitle is-6 mt-2 has-text-white-ter"><small>Posté le:</small> {createdAt}</p>
                     </div>
                 </div>
@@ -22,7 +22,15 @@ const OneList = ({ id, title, tasks, createdAt, setILists, AllLists }) => {
                     <p
                         onClick={() => removeList(id)}
                         className="level-item"
-                    ><strong>X</strong></p>
+                    ><strong> <span className="icon is-clickable">
+                        <i className="far fa-trash-alt has-text-danger title is-4 mr-5"></i>
+                    </span></strong></p>
+                    <p
+                        onClick={() => console.log('cc')}
+                        className="level-item"
+                    ><strong> <span className="icon is-clickable">
+                        <i className="far fa-arrow-alt-circle-right has-text-light title is-3"></i>
+                    </span></strong></p>
                 </div>
             </nav>
         </div>
