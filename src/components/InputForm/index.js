@@ -10,6 +10,7 @@ const InputForm = ({ inputValue, setInputValue, setData, Data }) => {
             id: uuidv4(),
             title: inputValue,
             createdAt: new Date().toLocaleString(),
+            tasks: []
         }])
         setInputValue('');
     };

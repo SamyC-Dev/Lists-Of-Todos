@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import spinnerImage from '../../assets/spinner.gif';
+
 
 function HomePage() {
     const history = useHistory();
-    const [listloading, setListsloading] = useState(false);
-    const [taskloading, setTaskloading] = useState(false);
     const [totalLists, setTotalLists] = useState(0);
     const [totalTasks, setTotalTasks] = useState(0);
+
+    const getListsLength = () => {
+        if (localStorage.getItem('lists') !== null) {
+            let listsLocal = JSON.parse(localStorage.getItem("lists"));
+            setTotalLists(listsLocal.length)
+        }
+    };
+
+    useEffect(() => {
+        getListsLength();
+    }, []);
 
 
     return (
@@ -23,13 +32,13 @@ function HomePage() {
                         <div className="level-item has-text-centered my-6">
                             <div>
                                 <p className="heading is-size-5"><span className="has-text-primary">Liste{totalLists > 1 && 's'}</span></p>
-                                <p className="title">{listloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalLists}</p>
+                                <p className="title">{totalLists}</p>
                             </div>
                         </div>
                         <div className="level-item has-text-centered my-6">
                             <div>
                                 <p className="heading is-size-5"><span className="has-text-primary">Tache{totalTasks > 1 && 's'}</span></p>
-                                <p className="title">{taskloading ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : totalTasks}</p>
+                                <p className="title">{totalTasks}</p>
                             </div>
                         </div>
                     </nav>
