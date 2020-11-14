@@ -34,8 +34,8 @@ function UserListPage() {
 
     return (
         <div className="">
-            <div className="container has-text-centered ">
-                <h1 className="title is-size-2 my-1">Bienvenue</h1>
+            <div className="container has-text-centered">
+                <h1 className="title is-size-2 my-1 has-text-white">Bienvenue</h1>
             </div>
             <section className="section">
                 <div className="container">
@@ -46,10 +46,11 @@ function UserListPage() {
                     </div>
                 </div>
             </section>
-            <section className="section ">
-                <h2 className="title is-size-3 has-text-centered">Mes listes</h2>
+            {AllLists.length > 0 ? <section className="section ">
+                <h2 className="title is-size-3 has-text-centered has-text-white">Mes listes <span className="tag is-primary title is-size-6">{AllLists.length}</span></h2>
                 <Lists AllLists={AllLists} setILists={setILists} />
-            </section>
+            </section> : <h2 className="title is-size-3 has-text-centered has-text-white">Vous n'avez pas encore de lists 👻</h2>}
+
         </div>
     );
 };
