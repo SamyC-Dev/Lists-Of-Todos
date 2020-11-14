@@ -26,7 +26,7 @@ const InputForm = ({ inputValue, setInputValue, setData, Data }) => {
                     placeholder="Entrer un nom de liste..." />
             </div>
             <div className="control">
-                <button onClick={handleSubmit} className="button is-primary">Crée liste</button>
+                <button onClick={handleSubmit} className="button is-primary" disabled={inputValue.length < 1 ? true : false} >Crée liste</button>
             </div>
         </div>
     );

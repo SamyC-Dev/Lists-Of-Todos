@@ -9,6 +9,7 @@ const Lists = ({ AllLists, setILists }) => {
         return <OneList key={list.id} {...list} setILists={setILists} AllLists={AllLists} />
     });
 
+
     return (
         <div className="container">
             <div className="columns is-centered">
