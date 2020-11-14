@@ -1,18 +1,17 @@
 # Lists Of TodoList
-Créer des todos listes ou des listes de todos listes. Pour l'anthentification et le stockage des taches j'utilise Firebase.
+Créer des todos listes ou des listes de todos listes. Pour le stockage j'utilise LocalStorage.
 
 ## Technos:
 
 - html
 - css
 - javascript
-- react ( hooks, useContext)
+- react ( hooks)
 - react router / react router dom
 - bulma
 
 ## Outils:
 
-- Firebase
 - Notyf
 - Uuid
 

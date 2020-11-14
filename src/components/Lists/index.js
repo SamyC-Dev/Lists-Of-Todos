@@ -1,26 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import spinnerImage from '../../assets/spinner.gif';
 
 import OneList from '../OneList';
 
-import getListsWhereUser from '../../utils/getListsWhereUser'
 
-const Lists = ({ AllLists, setloaderList, setILists, uid, loaderList }) => {
+const Lists = ({ AllLists, setILists, loaderList }) => {
 
     const MyLists = AllLists.map(list => {
-        return <OneList key={list.id} id={list.id} titre={list.title} />
-    })
-
-    useEffect(() => {
-
-        getListsWhereUser(setloaderList, setILists, uid);
-
-    }, [AllLists, setloaderList, setILists, uid]);
+        return <OneList key={list.id} {...list} setILists={setILists} AllLists={AllLists} />
+    });
 
     return (
         <div className="container">
             <div className="columns is-centered">
                 <div className="column is-8-tablet is-7-desktop is-6-widescreen">
-                    {AllLists && MyLists}
+                    {loaderList ? <img src={spinnerImage} style={{ width: '1.1em' }} alt="loader" /> : MyLists}
                 </div>
             </div>
         </div>

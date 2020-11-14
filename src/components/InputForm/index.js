@@ -1,22 +1,25 @@
 import React from 'react';
-import addUserList from '../../utils/addUserList';
+import { v4 as uuidv4 } from 'uuid';
 
-
-const InputForm = ({ inputList, setInputList, setILists, AllLists, uid }) => {
+const InputForm = ({ inputValue, setInputValue, setData, Data }) => {
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addUserList(inputList, uid)
-        setInputList('');
+        setData([...Data, {
+            id: uuidv4(),
+            title: inputValue,
+            createdAt: new Date().toLocaleString(),
+        }])
+        setInputValue('');
     };
 
     return (
         <div className="field has-addons">
             <div className="control is-expanded">
                 <input
-                    value={inputList}
-                    onChange={(e) => setInputList(e.target.value)}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                     className="input is-primary"
                     type="text"
                     placeholder="Entrer un nom de liste..." />

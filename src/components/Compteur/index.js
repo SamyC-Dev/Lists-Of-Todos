@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const Compteur = ({ title, countUserList }) => {
+const Compteur = () => {
 
     return (
         <div>
-            <h3 className=" title is-size-4">{countUserList} {title}</h3>
+            <h3 className=" title is-size-4"></h3>
         </div>
     );
 };

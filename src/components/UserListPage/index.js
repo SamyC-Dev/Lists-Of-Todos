@@ -1,41 +1,36 @@
-import React, { useContext, useState } from 'react';
-import { AuthContext } from "../../utils/auth/Auth";
+import React, { useState } from 'react';
 import './styles.css';
 
 import InputForm from '../InputForm';
 import Lists from '../Lists';
 
 
-
-
-function UserHomePage() {
-    const { currentUser } = useContext(AuthContext);
-    const { displayName, uid } = currentUser;
+function UserListPage() {
     const [AllLists, setILists] = useState([]);
     const [inputList, setInputList] = useState('');
     const [loaderList, setloaderList] = useState('');
-
+    console.log("valeur ds input:", inputList);
+    console.log("listes tableau:", AllLists);
     return (
         <div className="">
             <div className="container has-text-centered ">
                 <h1 className="title is-size-2 my-1">Bienvenue</h1>
-                <h2 className="title is-size-3 my-1">{displayName}</h2>
             </div>
             <section className="section">
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-8-tablet is-7-desktop is-6-widescreen">
-                            <InputForm inputList={inputList} setInputList={setInputList} setILists={setILists} AllLists={AllLists} uid={uid} />
+                            <InputForm inputValue={inputList} setInputValue={setInputList} setData={setILists} Data={AllLists} />
                         </div>
                     </div>
                 </div>
             </section>
             <section className="section ">
                 <h2 className="title is-size-3 has-text-centered">Mes listes</h2>
-                <Lists AllLists={AllLists} setloaderList={setloaderList} setILists={setILists} uid={uid} loaderList={loaderList} />
+                <Lists AllLists={AllLists} setILists={setILists} loaderList={loaderList} />
             </section>
         </div>
     );
 };
 
-export default UserHomePage;
+export default UserListPage;

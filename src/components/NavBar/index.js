@@ -1,21 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { AuthContext } from "../../utils/auth/Auth";
-import firebase from '../Firebase/firebase';
 import './styles.css';
 
 
 function Navbar() {
     const history = useHistory();
     const [isActive, setisActive] = useState(false);
-    const { currentUser } = useContext(AuthContext);
-    console.log('currentUser ds Navbar:', currentUser);
-
-    const logOut = (history) => {
-        firebase.auth().signOut();
-        history.push('/');
-    };
 
     return (
         <div>
@@ -36,9 +27,7 @@ function Navbar() {
                         <NavLink className="navbar-item" exact to={"/about"}>About</NavLink>
                         <div className="navbar-item">
                             <div className="buttons">
-                                {!currentUser ?
-                                    <button onClick={() => history.push('/login')} className="button is-primary is-outlined">Connexion</button> :
-                                    <button onClick={() => logOut(history)} className="button is-danger is-outlined">Deconnexion</button>}
+                                <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined">Mes Listes</button>
                             </div>
                         </div>
                     </div>
