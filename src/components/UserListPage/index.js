@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './styles.css';
 
 // Import components
@@ -11,6 +12,15 @@ function UserListPage() {
     const [AllTasks, setAllTasks] = useState([]);
     const [inputList, setInputList] = useState('');
 
+    const handleSubmitList = (e) => {
+        e.preventDefault();
+        setILists([...AllLists, {
+            id: uuidv4(),
+            title: inputList,
+            createdAt: new Date().toLocaleString(),
+        }])
+        setInputList('');
+    };
 
     const saveLocalLists = () => {
         localStorage.setItem('lists', JSON.stringify(AllLists));
@@ -32,13 +42,9 @@ function UserListPage() {
         }
     };
 
-    useEffect(() => {
-        getLocalLists();
-    }, []);
-
-    useEffect(() => {
-        saveLocalLists();
-    }, [AllLists, AllTasks]);
+    useEffect(() => getLocalLists(), []);
+    // eslint-disable-next-line
+    useEffect(() => saveLocalLists(), [AllLists, AllTasks]);
 
 
     return (
@@ -50,7 +56,7 @@ function UserListPage() {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-8-tablet is-7-desktop is-6-widescreen">
-                            <InputForm inputValue={inputList} setInputValue={setInputList} setData={setILists} Data={AllLists} placeholder={"Créer une liste..."} />
+                            <InputForm handleSubmit={handleSubmitList} inputValue={inputList} setInputValue={setInputList} placeholder={"Créer une liste..."} textSubmitButton={"Créer liste"} />
                         </div>
                     </div>
                 </div>
