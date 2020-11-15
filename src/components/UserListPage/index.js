@@ -56,7 +56,7 @@ function UserListPage() {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-8-tablet is-7-desktop is-6-widescreen">
-                            <InputForm handleSubmit={handleSubmitList} inputValue={inputList} setInputValue={setInputList} placeholder={"Créer une liste..."} textSubmitButton={"Créer liste"} />
+                            <InputForm handleSubmit={handleSubmitList} inputValue={inputList} setInputValue={setInputList} placeholder={"Créer une liste..."} textSubmitButton={"Créer liste"} colorButton={"primary"} />
                         </div>
                     </div>
                 </div>

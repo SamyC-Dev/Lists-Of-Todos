@@ -12,7 +12,7 @@ function Navbar() {
         <div>
             <nav className="navbar is-black" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <NavLink className="navbar-item has-text-primary" exact to={"/"}>List Of Todos</NavLink>
+                    <NavLink className="navbar-item has-text-primary title" exact to={"/"}>List Of Todos</NavLink>
                     <a
                         onClick={() => setisActive(!isActive)} role="button" className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
                         data-target="navbarBasicExample">

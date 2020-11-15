@@ -53,14 +53,14 @@ const List = () => {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-8-tablet is-7-desktop is-6-widescreen">
-                            <InputForm handleSubmit={handleSubmitTask} inputValue={inputTasks} setInputValue={setInputTasks} placeholder={"Créer une tache..."} textSubmitButton={"Créer tache"} />
+                            <InputForm handleSubmit={handleSubmitTask} inputValue={inputTasks} setInputValue={setInputTasks} placeholder={"Créer une tache..."} textSubmitButton={"Créer tache"} colorButton={"info"} />
                         </div>
                     </div>
                 </div>
             </section>
             {AllTasks.length > 0 ?
                 <section className="section ">
-                    <h2 className="title is-size-3 has-text-centered has-text-white">Mes taches <span className="tag is-primary title is-size-6">{tasksOfList.length}</span></h2>
+                    <h2 className="title is-size-3 has-text-centered has-text-white">Mes taches <span className="tag is-info title is-size-6">{tasksOfList.length}</span></h2>
                     <TasksbyList AllTasks={AllTasks} setAllTasks={setAllTasks} tasksOfList={tasksOfList} />
                 </section> :
                 <h2 className="title is-size-3 has-text-centered has-text-white">Vous n'avez pas encore de tache 👻</h2>}

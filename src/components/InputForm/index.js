@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputForm = ({ inputValue, setInputValue, placeholder, handleSubmit, textSubmitButton }) => {
+const InputForm = ({ inputValue, setInputValue, placeholder, handleSubmit, textSubmitButton, colorButton }) => {
 
     return (
         <div className="field has-addons">
@@ -13,7 +13,7 @@ const InputForm = ({ inputValue, setInputValue, placeholder, handleSubmit, textS
                     placeholder={placeholder} />
             </div>
             <div className="control">
-                <button onClick={handleSubmit} className="button is-primary" disabled={inputValue.length < 1 ? true : false} >{textSubmitButton}</button>
+                <button onClick={handleSubmit} className={`button is-${colorButton}`} disabled={inputValue.length < 1 ? true : false} >{textSubmitButton}</button>
             </div>
         </div>
     );

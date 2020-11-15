@@ -36,7 +36,7 @@ function HomePage() {
                     <hr className="has-background-primary" style={{ width: '20%', margin: '0 auto' }} />
                     <h2 className="subtitle is-size-3 my-5">Gagnez en productivité, libérez votre mémoire <span className="has-text-primary">.</span></h2>
                     <p className="is-size-5 my-5">Creez des Listes/Taches/ListesDeTaches</p>
-                    <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined mt-2">Vos Listes</button>
+                    <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined mt-2">{totalLists > 0 ? "Vos Listes" : "Créer une liste"}</button>
                     <nav className="level my-6">
                         <div className="level-item has-text-centered my-6">
                             <div>
