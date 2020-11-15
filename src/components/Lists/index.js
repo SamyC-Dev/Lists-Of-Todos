@@ -4,10 +4,10 @@ import React from 'react';
 import OneList from '../OneList';
 
 
-const Lists = ({ AllLists, setILists }) => {
+const Lists = ({ AllLists, setILists, AllTasks, setAllTasks }) => {
 
     const MyLists = AllLists.map(list => {
-        return <OneList key={list.id} {...list} setILists={setILists} AllLists={AllLists} />
+        return <OneList key={list.id} {...list} setILists={setILists} AllLists={AllLists} AllTasks={AllTasks} setAllTasks={setAllTasks} />
     });
 
 

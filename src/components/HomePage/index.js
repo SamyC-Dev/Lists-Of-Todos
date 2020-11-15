@@ -14,8 +14,17 @@ function HomePage() {
         }
     };
 
+    const getTasksLength = () => {
+        if (localStorage.getItem('tasks') !== null) {
+            let taskLocal = JSON.parse(localStorage.getItem("tasks"));
+            setTotalTasks(taskLocal.length)
+        }
+    };
+
+
     useEffect(() => {
         getListsLength();
+        getTasksLength()
     }, []);
 
 

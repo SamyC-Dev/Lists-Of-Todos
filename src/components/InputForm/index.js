@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-const InputForm = ({ inputValue, setInputValue, setData, Data }) => {
+const InputForm = ({ inputValue, setInputValue, setData, Data, placeholder }) => {
 
 
     const handleSubmit = (e) => {
@@ -10,7 +10,6 @@ const InputForm = ({ inputValue, setInputValue, setData, Data }) => {
             id: uuidv4(),
             title: inputValue,
             createdAt: new Date().toLocaleString(),
-            tasks: []
         }])
         setInputValue('');
     };
@@ -23,7 +22,7 @@ const InputForm = ({ inputValue, setInputValue, setData, Data }) => {
                     onChange={(e) => setInputValue(e.target.value)}
                     className="input is-primary"
                     type="text"
-                    placeholder="Entrer un nom de liste..." />
+                    placeholder={placeholder} />
             </div>
             <div className="control">
                 <button onClick={handleSubmit} className="button is-primary" disabled={inputValue.length < 1 ? true : false} >Crée liste</button>

@@ -23,8 +23,8 @@ function Navbar() {
                 </div>
                 <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
                     <div className="navbar-end">
-                        <NavLink className="navbar-item" exact to={"/"}>Home</NavLink>
-                        <NavLink className="navbar-item" exact to={"/about"}>About</NavLink>
+                        <NavLink className="navbar-item" exact activeClassName="currentClasseNav" to={"/"}>Home</NavLink>
+                        <NavLink className="navbar-item" exact activeClassName="currentClasseNav" to={"/about"}>About</NavLink>
                         <div className="navbar-item">
                             <div className="buttons">
                                 <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined">Mes Listes</button>
