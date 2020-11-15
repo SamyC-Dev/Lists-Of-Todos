@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Import components
 import InputForm from '../InputForm';
+import TasksbyList from '../TasksbyList';
 
 
 const List = () => {
@@ -60,7 +61,7 @@ const List = () => {
             {AllTasks.length > 0 ?
                 <section className="section ">
                     <h2 className="title is-size-3 has-text-centered has-text-white">Mes taches <span className="tag is-primary title is-size-6">{tasksOfList.length}</span></h2>
-                    {/* <Lists AllLists={AllLists} setILists={setILists} AllTasks={AllTasks} setAllTasks={setAllTasks} /> */}
+                    <TasksbyList AllTasks={AllTasks} setAllTasks={setAllTasks} tasksOfList={tasksOfList} />
                 </section> :
                 <h2 className="title is-size-3 has-text-centered has-text-white">Vous n'avez pas encore de tache 👻</h2>}
         </div>
