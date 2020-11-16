@@ -18,16 +18,15 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }} className="listContainer">
                 <div className="listContainer_left">
                     <div>
-                        <p className="subtitle is-3 has-text-white mb-1">{title}</p>
+                        <p className="title is-3 has-text-white mb-3">{title}</p>
                         <div className="tags has-addons">
                             <span className="tag is-link is-medium">{tasksList.length > 1 ? "Taches: " : "Tache: "}</span>
                             <span className="tag is-black is-medium">{tasksList.length}</span>
-                        </div>
-                        <span className="tag is-danger is-medium">
-                            Supprimer
+                            <span className="tag is-danger is-medium ml-2">
+                                Supprimer
                             <button onClick={() => removeList(id)} className="delete"></button>
-                        </span>
-                        {/* <p><span onClick={() => removeList(id)} className="has-text-danger is-clickable">Supprimer</span></p> */}
+                            </span>
+                        </div>
                         <p className="subtitle is-6 mt-2 has-text-white-ter"><small>Posté le:</small> {createdAt}</p>
                     </div>
                 </div>
@@ -38,7 +37,7 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                             state: { id, title }
                         }}>
                         <span className="icon is-clickable">
-                            <i className="far fa-arrow-alt-circle-right has-text-light title is-3"></i>
+                            <i className="fas fa-arrow-right has-text-light title is-3"></i>
                         </span>
                     </Link>
                 </div>
