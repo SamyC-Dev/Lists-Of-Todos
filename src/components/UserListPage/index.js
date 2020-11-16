@@ -63,7 +63,7 @@ function UserListPage() {
             </section>
             {AllLists.length > 0 ?
                 <section className="section ">
-                    <h2 className="title is-size-3 has-text-centered has-text-white">Mes listes <span className="tag is-primary title is-size-6">{AllLists.length}</span></h2>
+                    <h2 className="title is-size-3 has-text-centered has-text-white">{AllLists.length > 1 ? "Mes listes " : "Ma liste "}<span className="tag is-primary title is-size-6">{AllLists.length}</span></h2>
                     <Lists AllLists={AllLists} setILists={setILists} AllTasks={AllTasks} setAllTasks={setAllTasks} />
                 </section> :
                 <h2 className="title is-size-3 has-text-centered has-text-white">Vous n'avez pas encore de liste 👻</h2>}

@@ -58,9 +58,9 @@ const List = () => {
                     </div>
                 </div>
             </section>
-            {AllTasks.length > 0 ?
+            {tasksOfList.length > 0 ?
                 <section className="section ">
-                    <h2 className="title is-size-3 has-text-centered has-text-white">Mes taches <span className="tag is-info title is-size-6">{tasksOfList.length}</span></h2>
+                    <h2 className="title is-size-3 has-text-centered has-text-white">{tasksOfList.length > 1 ? "Mes taches " : "Ma tache "}<span className="tag is-info title is-size-6">{tasksOfList.length}</span></h2>
                     <TasksbyList AllTasks={AllTasks} setAllTasks={setAllTasks} tasksOfList={tasksOfList} />
                 </section> :
                 <h2 className="title is-size-3 has-text-centered has-text-white">Vous n'avez pas encore de tache 👻</h2>}

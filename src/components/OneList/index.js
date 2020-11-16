@@ -19,9 +19,15 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                 <div className="listContainer_left">
                     <div>
                         <p className="subtitle is-3 has-text-white mb-1">{title}</p>
-                        <p className="is-size-5">Tasks: {tasksList.length} </p>
-
-                        <p><span onClick={() => removeList(id)} className="has-text-danger is-clickable">Supprimer</span></p>
+                        <div className="tags has-addons">
+                            <span className="tag is-link is-medium">{tasksList.length > 1 ? "Taches: " : "Tache: "}</span>
+                            <span className="tag is-black is-medium">{tasksList.length}</span>
+                        </div>
+                        <span className="tag is-danger is-medium">
+                            Supprimer
+                            <button onClick={() => removeList(id)} className="delete"></button>
+                        </span>
+                        {/* <p><span onClick={() => removeList(id)} className="has-text-danger is-clickable">Supprimer</span></p> */}
                         <p className="subtitle is-6 mt-2 has-text-white-ter"><small>Posté le:</small> {createdAt}</p>
                     </div>
                 </div>
