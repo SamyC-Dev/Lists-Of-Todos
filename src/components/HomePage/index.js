@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Typewriter from 'typewriter-effect';
 
 
 function HomePage() {
@@ -35,7 +36,22 @@ function HomePage() {
                     <h1 className="title is-size-1">List Of Todos</h1>
                     <hr className="has-background-primary" style={{ width: '20%', margin: '0 auto' }} />
                     <h2 className="subtitle is-size-3 my-5">Gagnez en productivité, libérez votre mémoire <span className="has-text-primary">.</span></h2>
-                    <p className="is-size-5 my-5">Creez des Listes/Taches/ListesDeTaches</p>
+                    <div className="is-size-4 my-5">
+                        <Typewriter
+                            onInit={(typewriter) => {
+                                typewriter
+                                    .typeString('<span>Créer des  </span>')
+                                    .typeString('<span  style="color:#00D1B2;">listes.</span>')
+                                    .pauseFor(1000)
+                                    .deleteChars(7)
+                                    .typeString('<span style="color:#3298DC;">taches.</span>')
+                                    .pauseFor(1000)
+                                    .deleteChars(7)
+                                    .typeString('<span style="color:#00D1B2;">listes</span> de <span style="color:#3298DC;">taches.</span>')
+                                    .start();
+                            }}
+                        />
+                    </div>
                     <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined mt-2">{totalLists > 0 ? "Vos Listes" : "Créer une liste"}</button>
                     <nav className="level my-6">
                         <div className="level-item has-text-centered my-6">
@@ -53,6 +69,7 @@ function HomePage() {
                     </nav>
                 </div>
             </div>
+
         </section>
     );
 };
