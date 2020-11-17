@@ -35,7 +35,7 @@ function HomePage() {
                 <div className="container has-text-centered">
                     <h1 className="title is-size-1">List Of Todos</h1>
                     <hr className="has-background-primary" style={{ width: '20%', margin: '0 auto' }} />
-                    <h2 className="subtitle is-size-3 my-5">Gagnez en productivité, libérez votre mémoire <span className="has-text-primary">.</span></h2>
+                    <h2 className="subtitle is-size-3 my-5">Gagner en productivité, libérer votre mémoire <span className="has-text-primary">.</span></h2>
                     <div className="is-size-4 my-5">
                         <Typewriter
                             onInit={(typewriter) => {
@@ -44,10 +44,10 @@ function HomePage() {
                                     .typeString('<span  style="color:#00D1B2;">listes.</span>')
                                     .pauseFor(1000)
                                     .deleteChars(7)
-                                    .typeString('<span style="color:#3298DC;">taches.</span>')
+                                    .typeString('<span style="color:#3298DC;">tâches.</span>')
                                     .pauseFor(1000)
                                     .deleteChars(7)
-                                    .typeString('<span style="color:#00D1B2;">listes</span> de <span style="color:#3298DC;">taches.</span>')
+                                    .typeString('<span style="color:#00D1B2;">listes</span> de <span style="color:#3298DC;">tâches.</span>')
                                     .start();
                             }}
                         />
@@ -62,7 +62,7 @@ function HomePage() {
                         </div>
                         <div className="level-item has-text-centered my-6">
                             <div>
-                                <p className="heading is-size-5"><span className="has-text-primary">Tache{totalTasks > 1 && 's'}</span></p>
+                                <p className="heading is-size-5"><span className="has-text-primary">Tâche{totalTasks > 1 && 's'}</span></p>
                                 <p className="title">{totalTasks}</p>
                             </div>
                         </div>

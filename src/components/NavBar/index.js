@@ -12,7 +12,7 @@ function Navbar() {
         <div>
             <nav className="navbar is-black" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <NavLink className="navbar-item has-text-primary title" exact to={"/"}>List Of Todos</NavLink>
+                    <NavLink className="navbar-item has-text-primary is-size-5" exact to={"/"}>List Of Todos</NavLink>
                     <a
                         onClick={() => setisActive(!isActive)} role="button" className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false"
                         data-target="navbarBasicExample">
@@ -23,8 +23,8 @@ function Navbar() {
                 </div>
                 <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
                     <div className="navbar-end">
-                        <NavLink className="navbar-item" exact activeClassName="currentClasseNav" to={"/"}>Home</NavLink>
-                        <NavLink className="navbar-item" exact activeClassName="currentClasseNav" to={"/about"}>About</NavLink>
+                        <NavLink className="navbar-item" exact activeClassName="currentClasseNav" to={"/"}>Accueil</NavLink>
+                        <NavLink className="navbar-item" exact activeClassName="currentClasseNav" to={"/about"}>A propos</NavLink>
                         <div className="navbar-item">
                             <div className="buttons">
                                 <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined">Mes Listes</button>

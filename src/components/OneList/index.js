@@ -20,7 +20,7 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                     <div>
                         <p className="title is-3 has-text-white mb-3">{title}</p>
                         <div className="tags has-addons">
-                            <span className="tag is-link is-medium">{tasksList.length > 1 ? "Taches: " : "Tache: "}</span>
+                            <span className="tag is-link is-medium">{tasksList.length > 1 ? "Tâches: " : "Tâche: "}</span>
                             <span className="tag is-black is-medium">{tasksList.length}</span>
                             <span className="tag is-danger is-medium ml-2">
                                 Supprimer
