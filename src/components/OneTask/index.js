@@ -24,7 +24,7 @@ const OneTask = ({ id, title, completed, createdAt, AllTasks, setAllTasks }) => 
                 <div className="taskContainer_top_left">
                     <div style={{ display: "flex", alignItems: "center" }} className=" has-text-white">
                         <label className="checkbox ">
-                            <input className="has-size-3" onChange={() => changeStatutTask(id)} type="checkbox" />
+                            <input checked={completed} className="has-size-3" onChange={() => changeStatutTask(id)} type="checkbox" />
                         </label>
                         <p className="subtitle is-3 has-text-white ml-3">{title}</p>
                     </div>
