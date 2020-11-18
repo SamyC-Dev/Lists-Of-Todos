@@ -1,30 +1,20 @@
 import React from 'react';
 import './styles.css';
 
+// Import function
+import removeTask from '../../utils/removeTask';
+import changeStatutTask from '../../utils/changeStatutTask';
+
 
 const OneTask = ({ id, title, completed, createdAt, AllTasks, setAllTasks }) => {
 
-    const removeTask = id => {
-        const newtasks = [...AllTasks].filter(task => task.id !== id)
-        setAllTasks(newtasks);
-    };
-
-    const changeStatutTask = id => {
-        const newTasks = AllTasks.map((task) => {
-            const taskCopy = { ...task };
-            if (taskCopy.id === id) taskCopy.completed = !taskCopy.completed;
-            return taskCopy;
-        });
-        setAllTasks(newTasks);
-    };
     return (
-
         <div className={!completed ? `box has-background-info` : "box isCompleted has-background-grey"}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} className="taskContainer">
                 <div className="taskContainer_top_left">
                     <div style={{ display: "flex", alignItems: "center" }} className=" has-text-white">
                         <label className="checkbox ">
-                            <input checked={completed} className="has-size-3" onChange={() => changeStatutTask(id)} type="checkbox" />
+                            <input checked={completed} className="has-size-3" onChange={() => changeStatutTask(id, AllTasks, setAllTasks)} type="checkbox" />
                         </label>
                         <p className="subtitle is-3 has-text-white ml-3">{title}</p>
                     </div>
@@ -32,8 +22,7 @@ const OneTask = ({ id, title, completed, createdAt, AllTasks, setAllTasks }) => 
                 </div>
                 <div className="taskContainer_top_right">
                     <p>
-
-                        <button onClick={() => removeTask(id)} className="delete"></button>
+                        <button onClick={() => removeTask(id, AllTasks, setAllTasks)} className="delete"></button>
                     </p>
                 </div>
             </div>

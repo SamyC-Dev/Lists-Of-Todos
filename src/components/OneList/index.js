@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import function
+import removeList from '../../utils/removeList';
+
 
 const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTasks }) => {
-
-    const removeList = id => {
-        const newLists = [...AllLists].filter(list => list.id !== id);
-        const newtasks = [...AllTasks].filter(task => task.ownerList !== id)
-        setILists(newLists);
-        setAllTasks(newtasks);
-    };
 
     const tasksList = AllTasks.filter(task => task.ownerList === id)
 
@@ -24,7 +20,7 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                             <span className="tag is-black is-medium">{tasksList.length}</span>
                             <span className="tag is-danger is-medium ml-2">
                                 Supprimer
-                            <button onClick={() => removeList(id)} className="delete"></button>
+                            <button onClick={() => removeList(id, AllLists, AllTasks, setILists, setAllTasks)} className="delete"></button>
                             </span>
                         </div>
                         <p className="subtitle is-6 mt-2 has-text-white-ter"><small>Posté le:</small> {createdAt}</p>

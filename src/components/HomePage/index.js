@@ -2,30 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 
+// Import function
+import getListsLength from "../../utils/getListsLength";
+import getTasksLength from "../../utils/getTasksLength";
+
 
 function HomePage() {
+
     const history = useHistory();
     const [totalLists, setTotalLists] = useState(0);
     const [totalTasks, setTotalTasks] = useState(0);
 
-    const getListsLength = () => {
-        if (localStorage.getItem('lists') !== null) {
-            let listsLocal = JSON.parse(localStorage.getItem("lists"));
-            setTotalLists(listsLocal.length)
-        }
-    };
-
-    const getTasksLength = () => {
-        if (localStorage.getItem('tasks') !== null) {
-            let taskLocal = JSON.parse(localStorage.getItem("tasks"));
-            setTotalTasks(taskLocal.length)
-        }
-    };
-
-
     useEffect(() => {
-        getListsLength();
-        getTasksLength()
+        getListsLength(setTotalLists);
+        getTasksLength(setTotalTasks);
     }, []);
 
 

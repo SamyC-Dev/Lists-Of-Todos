@@ -6,11 +6,18 @@ import { v4 as uuidv4 } from 'uuid';
 import InputForm from '../InputForm';
 import TasksbyList from '../TasksbyList';
 
+// Import function
+import saveLocalTasks from '../../utils/saveLocalTasks';
+import getLocalTasks from '../../utils/getLocalTasks';
+
 
 const List = () => {
+
     let location = useLocation();
     const [AllTasks, setAllTasks] = useState([]);
     const [inputTasks, setInputTasks] = useState([]);
+    const tasksOfList = AllTasks.filter(task => task.ownerList === location.state.id)
+
 
     const handleSubmitTask = (e) => {
         e.preventDefault();
@@ -24,24 +31,10 @@ const List = () => {
         setInputTasks('');
     };
 
-    const saveLocalTasks = () => {
-        localStorage.setItem('tasks', JSON.stringify(AllTasks));
-    };
 
-    const getLocalTasks = () => {
-        if (localStorage.getItem('tasks') === null) {
-            localStorage.setItem('tasks', JSON.stringify([]));
-        } else {
-            let tasksLocal = JSON.parse(localStorage.getItem("tasks"));
-            setAllTasks(tasksLocal);
-        }
-    };
-
-    const tasksOfList = AllTasks.filter(task => task.ownerList === location.state.id)
-
-    useEffect(() => getLocalTasks(), []);
+    useEffect(() => getLocalTasks(setAllTasks), []);
     // eslint-disable-next-line
-    useEffect(() => saveLocalTasks(), [AllTasks]);
+    useEffect(() => saveLocalTasks(AllTasks), [AllTasks]);
 
     return (
 

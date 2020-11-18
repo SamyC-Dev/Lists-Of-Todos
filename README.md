@@ -13,8 +13,8 @@ Créer des todos listes ou des listes de todos listes. Pour le stockage j'utilis
 ## Outils:
 
 - Local Storage
-- Notyf
 - Uuid
+- Typewriter-effect
 
 ## Wireframe:
 

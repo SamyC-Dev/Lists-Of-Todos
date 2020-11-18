@@ -5,6 +5,7 @@ import './styles.css';
 
 
 function Navbar() {
+
     const history = useHistory();
     const [isActive, setisActive] = useState(false);
 

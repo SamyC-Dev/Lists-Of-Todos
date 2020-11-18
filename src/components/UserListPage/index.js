@@ -6,8 +6,13 @@ import './styles.css';
 import InputForm from '../InputForm';
 import Lists from '../Lists';
 
+// Import function
+import saveLocalLists from '../../utils/saveLocalLists';
+import getLocalLists from '../../utils/getLocalLists';
+
 
 function UserListPage() {
+
     const [AllLists, setILists] = useState([]);
     const [AllTasks, setAllTasks] = useState([]);
     const [inputList, setInputList] = useState('');
@@ -22,29 +27,10 @@ function UserListPage() {
         setInputList('');
     };
 
-    const saveLocalLists = () => {
-        localStorage.setItem('lists', JSON.stringify(AllLists));
-        localStorage.setItem('tasks', JSON.stringify(AllTasks));
-    };
 
-    const getLocalLists = () => {
-        if (localStorage.getItem('lists') === null) {
-            localStorage.setItem('lists', JSON.stringify([]));
-        } else {
-            let listsLocal = JSON.parse(localStorage.getItem("lists"));
-            setILists(listsLocal);
-        }
-        if (localStorage.getItem('tasks') === null) {
-            localStorage.setItem('tasks', JSON.stringify([]));
-        } else {
-            let tasksLocal = JSON.parse(localStorage.getItem("tasks"));
-            setAllTasks(tasksLocal);
-        }
-    };
-
-    useEffect(() => getLocalLists(), []);
+    useEffect(() => getLocalLists(setILists, setAllTasks), []);
     // eslint-disable-next-line
-    useEffect(() => saveLocalLists(), [AllLists, AllTasks]);
+    useEffect(() => saveLocalLists(AllLists, AllTasks), [AllLists, AllTasks]);
 
 
     return (

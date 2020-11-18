@@ -1,6 +1,7 @@
 import React from 'react';
 
 function About() {
+
     return (
         <section className="hero is-black is-fullheight-with-navbar">
             <h1 className="title is-3 has-text-white mb-3 has-text-centered">A propos</h1>
