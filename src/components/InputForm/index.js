@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const InputForm = ({ inputValue, setInputValue, placeholder, handleSubmit, textSubmitButton, colorButton }) => {
+
+    const inputRef = useRef(null);
+
+    useEffect(() => inputRef.current.focus(), []);
 
     return (
         <form className="field has-addons">
@@ -8,6 +12,7 @@ const InputForm = ({ inputValue, setInputValue, placeholder, handleSubmit, textS
                 <input
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
+                    ref={inputRef}
                     className="input is-primary"
                     type="text"
                     placeholder={placeholder} />
