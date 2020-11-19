@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 // Import function
 import removeList from '../../utils/removeList';
@@ -21,7 +23,26 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                             <span className="tag is-black is-medium">{taskListNotCompleted.length}/{tasksList.length}</span>
                             <span className="tag is-danger is-medium ml-2">
                                 Supprimer
-                            <button onClick={() => removeList(id, AllLists, AllTasks, setILists, setAllTasks)} className="delete"></button>
+                            <button onClick={() => {
+                                    if (taskListNotCompleted.length > 0) {
+                                        confirmAlert({
+                                            title: 'Attention',
+                                            message: `il reste ${taskListNotCompleted.length === 1 ? `il vous reste ${taskListNotCompleted.length} tâche` : `il vous reste ${taskListNotCompleted.length} tâches`}`,
+                                            buttons: [
+                                                {
+                                                    label: 'Yes',
+                                                    onClick: () => removeList(id, AllLists, AllTasks, setILists, setAllTasks)
+                                                },
+                                                {
+                                                    label: 'No',
+                                                    onClick: () => console.log("Remove canceled")
+                                                }
+                                            ]
+                                        });
+                                    } else {
+                                        removeList(id, AllLists, AllTasks, setILists, setAllTasks);
+                                    };
+                                }} className="delete"></button>
                             </span>
                         </div>
                         <p className="subtitle is-6 mt-2 has-text-white-ter"><small>Posté le:</small> {createdAt}</p>
