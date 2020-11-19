@@ -27,7 +27,7 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                                     if (taskListNotCompleted.length > 0) {
                                         confirmAlert({
                                             title: 'Attention',
-                                            message: `il reste ${taskListNotCompleted.length === 1 ? `il vous reste ${taskListNotCompleted.length} tâche` : `il vous reste ${taskListNotCompleted.length} tâches`}`,
+                                            message: `${taskListNotCompleted.length === 1 ? `il vous reste ${taskListNotCompleted.length} tâche` : `il vous reste ${taskListNotCompleted.length} tâches`}`,
                                             buttons: [
                                                 {
                                                     label: 'Yes',
