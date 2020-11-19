@@ -7,7 +7,8 @@ import removeList from '../../utils/removeList';
 
 const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTasks }) => {
 
-    const tasksList = AllTasks.filter(task => task.ownerList === id)
+    const tasksList = AllTasks.filter(task => task.ownerList === id);
+    const taskListNotCompleted = tasksList.filter(task => task.completed === false);
 
     return (
         <div className="box has-background-primary">
@@ -17,7 +18,7 @@ const OneList = ({ id, title, createdAt, setILists, AllLists, AllTasks, setAllTa
                         <p className="title is-3 has-text-white mb-3">{title}</p>
                         <div className="tags has-addons">
                             <span className="tag is-link is-medium">{tasksList.length > 1 ? "Tâches: " : "Tâche: "}</span>
-                            <span className="tag is-black is-medium">{tasksList.length}</span>
+                            <span className="tag is-black is-medium">{taskListNotCompleted.length}/{tasksList.length}</span>
                             <span className="tag is-danger is-medium ml-2">
                                 Supprimer
                             <button onClick={() => removeList(id, AllLists, AllTasks, setILists, setAllTasks)} className="delete"></button>
