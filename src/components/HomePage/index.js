@@ -18,6 +18,18 @@ function HomePage() {
         getTasksLength(setTotalTasks);
     }, []);
 
+    let checkLists = () => {
+        if (totalLists === 1) {
+            return "Votre Liste"
+        }
+        else if (totalLists > 1) {
+            return "Vos Listes"
+        }
+        else if (totalLists === 0) {
+            return "Créer une liste"
+        }
+    }
+
 
     return (
         <section className="hero is-black is-fullheight-with-navbar">
@@ -42,7 +54,10 @@ function HomePage() {
                             }}
                         />
                     </div>
-                    <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined mt-2">{totalLists > 0 ? "Vos Listes" : "Créer une liste"}</button>
+                    <button onClick={() => history.push('/mylists')} className="button is-primary is-outlined mt-2">
+                        {checkLists()}
+                        {/* {totalLists > 0 ? "Vos Listes" : "Créer une liste"} */}
+                    </button>
                     <nav className="level my-6">
                         <div className="level-item has-text-centered my-6">
                             <div>
